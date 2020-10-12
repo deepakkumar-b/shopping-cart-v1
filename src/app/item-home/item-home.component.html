@@ -1,4 +1,18 @@
 <p>item-home works!</p>
-<div class="row">
-    <mdb-image-modal [modalImages]="images" type="margin"></mdb-image-modal>
-</div>
+<div class="card-columns">
+        <div class="card" *ngFor="let item of itemResponse?.items">
+          <img class="card-img-top" [src]="item.media.m" [alt]="item.title" />
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">
+              Uploaded by {{ item.author_id }} on
+              {{ item.published | date: "medium" }}
+            </p>
+            <p class="card-text">{{ item.title }}</p>
+                <hr>
+            <p class="card-text">
+              <small class="text-muted">{{ item.tags }}</small>
+            </p>
+          </div>
+        </div>
+      </div>

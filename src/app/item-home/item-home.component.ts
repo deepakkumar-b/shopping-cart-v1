@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemResponse } from '../app.interface';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-item-home',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemHomeComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  itemResponse: ItemResponse;
+  constructor(private appService: AppService) { }
+  ngOnInit() {
+    this.appService.getPhotos().subscribe( response => {
+      this.itemResponse = response;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
