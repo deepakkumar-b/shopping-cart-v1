@@ -8,6 +8,21 @@ export interface ItemResponse {
     items: Item[];
 }
 
+export interface ItemHomeResponse {
+    name:string,
+    "id":number,
+    "image":string,
+    "category":string,
+    "count":number,
+    "quantity": string,
+    "offer":string,
+    "old_price":number,
+    "new_price":number,
+    "isBulkOrder":boolean,
+    "bulkItem":number,
+    "bulkPrice":number
+}
+
 export interface MediaUrl {
     m: string;
 }

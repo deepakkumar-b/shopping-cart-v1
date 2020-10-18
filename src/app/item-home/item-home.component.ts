@@ -11,12 +11,6 @@ export class ItemHomeComponent implements OnInit {
 
   itemResponse: ItemResponse;
   constructor(private appService: AppService) { }
-  ngOnInit() {
-    this.appService.getPhotos().subscribe( response => {
-      this.itemResponse = response;
-    }, error => {
-      console.log(error);
-    });
-  }
+  ngOnInit() {}
 
 }

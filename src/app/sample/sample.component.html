@@ -1,0 +1,29 @@
+<p>sample works!</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+  <script data-require="bootstrap@4.0.5" data-semver="4.0.5" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <p>item-home works!</p>
+  <div class="card-columns">
+      <div class="card" *ngFor="let item of itemResponse?.items">
+        <img class="card-img-top" [src]="item.media.m" [alt]="item.title" />
+        <div class="card-block">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">
+            Uploaded by {{ item.author_id }} on
+            {{ item.published | date: "medium" }}
+          </p>
+          <p class="card-text">{{ item.title }}</p>
+          <hr>
+          <p class="card-text">
+            <small class="text-muted">{{ item.tags }}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+</body>
+
