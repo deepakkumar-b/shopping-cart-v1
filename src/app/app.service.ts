@@ -20,4 +20,8 @@ export class AppService {
   getItemsForHome(): Observable<ItemHomeResponse> {
     return this.http.get<ItemHomeResponse>(this.itemsUrl);
   }
+
+  getItemById(id: number): Observable<ItemHomeResponse> {
+    return this.http.get<ItemHomeResponse>(this.itemsUrl+"/"+id);
+  }
 }

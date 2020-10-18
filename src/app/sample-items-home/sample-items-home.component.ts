@@ -8,7 +8,8 @@ import { AppService } from '../app.service';
   styleUrls: ['./sample-items-home.component.css']
 })
 export class SampleItemsHomeComponent implements OnInit {
-  counterValue: number = 0;
+  counterValue: Map<number, number> = new Map<number, number>();
+  maxCount: Map<number, number> = new Map<number, number>();
   maxValue: number = 0;
   itemResponse: ItemHomeResponse;
   constructor(private appService: AppService) { }
@@ -22,17 +23,36 @@ export class SampleItemsHomeComponent implements OnInit {
     });
   }
 
-  increment(maxQuantity: number) {
-    console.log(maxQuantity);
-    if(this.counterValue < maxQuantity) {
-      this.counterValue++;
+  increment(itemId:number, maxQuantity: number) {
+    let itemCount = 0;
+    if(this.counterValue.has(itemId)) {
+      itemCount = this.counterValue.get(itemId);
     }
+    if(itemCount < maxQuantity) {
+      itemCount++;
+      this.counterValue.set(itemId, itemCount);
+    }    
+  }
+
+  decrement(itemId: number, maxQuantity: number) {
+    let itemCount = 0;
+    if(this.counterValue.has(itemId)) {
+      itemCount = this.counterValue.get(itemId);
+    }
+    if(itemCount > 0) {
+      itemCount--;
+      this.counterValue.set(itemId, itemCount);
+    }  
     
   }
 
-  decrement(maxQuantity: number) {
-    if(this.counterValue <= maxQuantity && this.counterValue > 0) {
-      this.counterValue--;
+  getCounterValue(itemId: number): number { 
+    if(this.counterValue.has(itemId)) {
+      console.log(this.counterValue.get(itemId));
+      return this.counterValue.get(itemId);
+    } else {
+      return 0;
     }
+    
   }
 }
