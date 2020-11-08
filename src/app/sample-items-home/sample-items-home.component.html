@@ -30,8 +30,12 @@
              <img alt="Card image cap" class="card-img-top embed-responsive-item" [src]="item.image"/>
           </div>
           <div class="card-block">
-            <h4 class="card-title">{{ item.name }}</h4>
-            <p class="card-text"> {{ item.count }} {{ item.quantity }} {{ item.new_price }}</p>
+            <h4 class="card-title">{{ item.name }} <br> </h4>
+            <h5> <p class="card-text">{{ item.quantity }}</p></h5>
+            <h5> <p class="card-text">{{ item.new_price }}</p></h5>
+            <ngb-rating [max]="5" [(rate)]="item.rating" [readonly]="false">
+                <h5> <p class="card-text">{{ item.rating }}</p></h5>            
+            </ngb-rating>
             <div class="counter">
                 <div class="counter_container">
                   <button (click)="decrement(item.id, item.count);" class="counter_button">

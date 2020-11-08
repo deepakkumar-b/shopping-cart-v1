@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SampleComponent } from './sample/sample.component';
 import { SampleItemsHomeComponent } from './sample-items-home/sample-items-home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SampleItemsHomeComponent } from './sample-items-home/sample-items-home.
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   exports: [
     MatButtonModule,

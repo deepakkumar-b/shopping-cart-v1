@@ -48,7 +48,6 @@ export class SampleItemsHomeComponent implements OnInit {
 
   getCounterValue(itemId: number): number { 
     if(this.counterValue.has(itemId)) {
-      console.log(this.counterValue.get(itemId));
       return this.counterValue.get(itemId);
     } else {
       return 0;
