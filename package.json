@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "json-server --watch ./../sample_json/items.json"
+    "api": "json-server --watch ./src/data/items.json"
   },
   "private": true,
   "dependencies": {
