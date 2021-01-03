@@ -10,17 +10,17 @@ export interface ItemResponse {
 
 export interface ItemHomeResponse {
     name:string,
-    "id":number,
-    "image":string,
-    "category":string,
-    "count":number,
-    "quantity": string,
-    "offer":string,
-    "old_price":number,
-    "new_price":number,
-    "isBulkOrder":boolean,
-    "bulkItem":number,
-    "bulkPrice":number
+    id:number,
+    image:string,
+    category:string,
+    count:number,
+    quantity: string,
+    offer:string,
+    old_price:number,
+    new_price:number,
+    isBulkOrder:boolean,
+    bulkItem:number,
+    bulkPrice:number
 }
 
 export interface MediaUrl {
@@ -38,3 +38,8 @@ export interface Item {
     author_id: string;
     tags: string;
 }
+
+export interface Product {
+    name: string;
+    price: number;
+  }
