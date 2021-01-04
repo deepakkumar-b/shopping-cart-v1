@@ -39,7 +39,16 @@ export interface Item {
     tags: string;
 }
 
+export interface shoppingCartState {
+    cartItems: Array<Product>;
+}
+
+export const initShoppingCartState: shoppingCartState = {
+    cartItems: []
+}
+
 export interface Product {
     name: string;
-    price: number;
-  }
+    pricePerItem: number;
+    totalPrice: number;
+}

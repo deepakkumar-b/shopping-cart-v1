@@ -49,12 +49,12 @@
                   <button (click)="increment(item.id, item.count);" class="counter_button">
                     +
                   </button>
+                  <button mat-icon-button color="primary" (click)="addToCart(item)" aria-label="Add to cart">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                  </button>
                 </div>
               </div>
           </div>          
-          <button mat-icon-button color="primary" aria-label="Add to cart">
-            <mat-icon>home</mat-icon>
-          </button>
         </div>
     </div>
 </body>

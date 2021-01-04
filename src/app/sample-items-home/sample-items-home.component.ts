@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { zip } from 'rxjs';
 import { ItemResponse, ItemHomeResponse } from '../app.interface';
 import { AppService } from '../app.service';
+import { AddProductToCartAction } from '../store/shopping-cart.actions';
 
 @Component({
   selector: 'app-sample-items-home',
@@ -12,7 +15,7 @@ export class SampleItemsHomeComponent implements OnInit {
   maxCount: Map<number, number> = new Map<number, number>();
   maxValue: number = 0;
   itemResponse: ItemHomeResponse;
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private store$: Store) { }
 
   ngOnInit() {
     this.appService.getItemsForHome().subscribe( response => {
@@ -42,8 +45,7 @@ export class SampleItemsHomeComponent implements OnInit {
     if(itemCount > 0) {
       itemCount--;
       this.counterValue.set(itemId, itemCount);
-    }  
-    
+    }    
   }
 
   getCounterValue(itemId: number): number { 
@@ -52,6 +54,16 @@ export class SampleItemsHomeComponent implements OnInit {
     } else {
       return 0;
     }
-    
   }
+
+  addToCart(item: ItemHomeResponse): void {
+    console.log("Event");
+    console.log(item);
+
+    // calculate totalPrice before adding to cart
+  const totalPrice = item.new_price * this.getCounterValue(item.id);
+    this.store$.dispatch(new AddProductToCartAction(item));
+    // console.log($event);
+  }
+
 }
